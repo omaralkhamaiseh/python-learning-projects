@@ -1,4 +1,5 @@
 import random
+import time 
 class Player:
     def __init__(self,name,health,attack_power):
         self.name=name
@@ -36,10 +37,15 @@ while True:
       choice = int(input("Make your move (1/2/3): "))
       if choice == 1:
             hero.attack(boss)
+            time.sleep(1)
             if boss.health > 0:
                 boss.attack(hero)
+                time.sleep(1)
       elif choice ==2:
-            hero.heal(10)  
+            hero.heal(15)  
+            time.sleep(1)
+            boss.attack(hero)
+            time.sleep(1)
       elif choice ==3:
             break
       if hero.health <= 0 or boss.health <= 0:
