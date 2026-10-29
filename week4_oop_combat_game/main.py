@@ -33,7 +33,14 @@ class Enemy:
              target.health=target.health-damage_dealt
              print(f"{self.name} attacked {target.name} for {damage_dealt} damage! {target.name} has {target.health} HP left.")            
 hero=Mage("Omar",100,25)
-boss=Enemy("Genichiro",150,15)
+boss_list=[
+     Enemy("Genichiro", 100, 15),
+     Enemy("Owl", 150, 20),
+     Enemy("Isshin", 200, 25)
+]
+boss_index=0
+boss=boss_list[boss_index]
+
 while True:
       print("\n--- COMBAT MENU ---")
       print("1. Attack")
@@ -53,8 +60,16 @@ while True:
             time.sleep(1)
       elif choice ==3:
             break
-      if hero.health <= 0 or boss.health <= 0:
-        print("The battle is over!")
-        break
-            
-                  
+      if hero.health<=0:
+           print(f"💀 {hero.name} has fallen in battle... Game Over.")
+           break
+      if boss.health <= 0:
+            print(f"🗡️ You defeated {boss.name}!")
+            boss_index =boss_index+ 1 
+            if boss_index < len(boss_list):
+                boss = boss_list[boss_index]
+                print(f"\n⚠️ A new challenger approaches: {boss.name}!")
+                time.sleep(2)
+            else:
+                print("\n🏆 YOU CLEARED THE GAUNTLET! YOU WIN!")
+                break
