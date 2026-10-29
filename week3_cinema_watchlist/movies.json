@@ -1,0 +1,10 @@
+{
+    "omar": {
+        "rating": 20,
+        "watched": "yes"
+    },
+    "kayan": {
+        "rating": 99,
+        "watched": "no"
+    }
+}
