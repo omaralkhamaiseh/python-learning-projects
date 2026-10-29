@@ -18,6 +18,11 @@ class Player:
     def heal(self,heal_amount):
           self.health=self.health+heal_amount
           print(f"{self.name} healed for {heal_amount} HP! Health is now {self.health}.")
+class Mage(Player):
+     def heal(self, heal_amount):
+          enhanced_heal=heal_amount*2
+          self.health=self.health+enhanced_heal
+          print(f"✨ {self.name} cast a healing spell for {enhanced_heal} HP! Health is now {self.health}.")
 class Enemy:
      def __init__(self,name,health,attack_power):
             self.name=name
@@ -27,7 +32,7 @@ class Enemy:
              damage_dealt=random.randint(self.attack_power-5,self.attack_power+5)
              target.health=target.health-damage_dealt
              print(f"{self.name} attacked {target.name} for {damage_dealt} damage! {target.name} has {target.health} HP left.")            
-hero=Player("Omar",100,25)
+hero=Mage("Omar",100,25)
 boss=Enemy("Genichiro",150,15)
 while True:
       print("\n--- COMBAT MENU ---")
